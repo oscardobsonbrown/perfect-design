@@ -175,7 +175,6 @@ export const categories = [
 export const navigation = [
   { label: "Discover", href: "/" },
   { label: "Browse", href: "/browse" },
-  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
 ];
 

@@ -2,7 +2,6 @@ import { Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { Pill, PillIndicator } from "@/components/kibo-ui/pill";
 import { browseCategories, brands, productLists, BrandLogos } from "@/lib/browse-data";
 import { navigation, footerNavigation } from "@/lib/data";
 import Image from "next/image";
@@ -64,39 +63,8 @@ export default function BrowsePage() {
         </div>
       </header>
 
-      {}
-      <section className="pt-16 pb-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <Pill className="mb-6 inline-flex items-center gap-2 bg-gray-100 text-gray-700">
-            <PillIndicator variant="success" pulse />
-            Updated every Sunday
-          </Pill>
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Discover well-designed,
-            <br />
-            carefully curated products
-          </h1>
-          <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-            Subscribe and join 4,500+ readers for weekly emails featuring
-            timeless, design-led products across home, work, and life.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <Input
-              type="email"
-              placeholder="name@email.com"
-              className="flex-1 h-11"
-            />
-            <Button className="h-11 px-6 bg-black hover:bg-gray-800 text-white">
-              Subscribe
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {}
-        <h2 className="text-3xl font-bold text-gray-900 mb-12">Browse</h2>
+        <h1 className="text-3xl font-bold text-gray-900 mb-12">Browse</h1>
 
         {/* By Category Section */}
         <section className="mb-16">
