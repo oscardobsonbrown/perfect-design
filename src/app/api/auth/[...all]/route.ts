@@ -1,23 +1,17 @@
-import { auth, getAuth } from "@/lib/auth";
+import { getAuth } from "@/lib/auth";
 import { toNextJsHandler } from "better-auth/next-js";
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
-const handlers = auth ? toNextJsHandler(auth) : null;
+export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
-  if (!handlers) {
-    const authInstance = getAuth();
-    const dynamicHandlers = toNextJsHandler(authInstance);
-    return dynamicHandlers.GET(request);
-  }
+  const auth = getAuth();
+  const handlers = toNextJsHandler(auth);
   return handlers.GET(request);
 }
 
 export async function POST(request: NextRequest) {
-  if (!handlers) {
-    const authInstance = getAuth();
-    const dynamicHandlers = toNextJsHandler(authInstance);
-    return dynamicHandlers.POST(request);
-  }
+  const auth = getAuth();
+  const handlers = toNextJsHandler(auth);
   return handlers.POST(request);
 }
