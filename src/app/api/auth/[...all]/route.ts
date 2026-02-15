@@ -6,12 +6,12 @@ export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   const auth = getAuth();
-  const handlers = toNextJsHandler(auth);
-  return handlers.GET(request);
+  const handler = toNextJsHandler(auth);
+  return handler.GET(request);
 }
 
 export async function POST(request: NextRequest) {
   const auth = getAuth();
-  const handlers = toNextJsHandler(auth);
-  return handlers.POST(request);
+  const handler = toNextJsHandler(auth);
+  return handler.POST(request);
 }
