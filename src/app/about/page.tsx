@@ -1,21 +1,19 @@
 import { Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Pill, PillIndicator } from "@/components/kibo-ui/pill";
-import { products, categories, navigation, footerNavigation } from "@/lib/data";
+import { navigation, footerNavigation } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
+      {}
       <header className="sticky top-0 z-50 bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+            {}
             <Link href="/" className="flex items-center">
               <svg
                 width="24"
@@ -34,20 +32,24 @@ export default function Home() {
               </svg>
             </Link>
 
-            {/* Navigation */}
+            {}
             <nav className="hidden md:flex items-center space-x-8">
               {navigation.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm font-medium text-gray-600 hover:text-black transition-colors"
+                  className={`text-sm font-medium transition-colors ${
+                    item.label === "About"
+                      ? "text-black"
+                      : "text-gray-600 hover:text-black"
+                  }`}
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
 
-            {/* Right side */}
+            {}
             <div className="flex items-center space-x-4">
               <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
                 <Search className="w-5 h-5 text-gray-600" />
@@ -60,139 +62,107 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="pt-16 pb-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <Pill className="mb-6 inline-flex items-center gap-2 bg-gray-100 text-gray-700">
-            <PillIndicator variant="success" pulse />
-            Updated every Sunday
-          </Pill>
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Discover well-designed,
+      {}
+      <main className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {}
+        <section className="mb-16">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+            Built for those who
             <br />
-            carefully curated products
+            care what they
+            <br />
+            bring into their lives
           </h1>
-          <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-            Subscribe and join 4,500+ readers for weekly emails featuring
-            timeless, design-led products across home, work, and life.
+
+          <div className="space-y-6 text-gray-600 leading-relaxed">
+            <p>
+              This website exists because the world doesn't need more stuff,
+              it needs better stuff.
+            </p>
+
+            <p>
+              We're surrounded by things built fast, priced to move, and
+              meant to be replaced. Yet there's a quiet kind of luxury in
+              choosing well.
+            </p>
+
+            <p>
+              Everything here is chosen for its quality and utility.
+            </p>
+
+            <p>
+              Tools and objects that make life simpler, not busier. Materials
+              that improve with time. Products that feel as considered as the
+              spaces they inhabit.
+            </p>
+
+            <p>
+              It's not about how things look, but how they endure. Not status
+              objects, but standards. Not what they do, but how well it's done.
+            </p>
+
+            <p>
+              Design that respects your time and attention.
+            </p>
+
+            <p>
+              Welcome to Curated Supply, a place for those who believe that
+              what you own, should matter.
+            </p>
+          </div>
+
+          {}
+          <div className="flex items-center gap-3 mt-10 pt-10 border-t">
+            <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-200">
+              <Image
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
+                alt="Justin"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="font-medium text-gray-900">Justin</p>
+              <p className="text-sm text-gray-500">Designer & Curator</p>
+            </div>
+          </div>
+        </section>
+
+        {}
+        <section>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Contact</h2>
+          <p className="text-gray-600 mb-6">
+            Have a question or product worth sharing? I read everything.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+
+          <form className="space-y-4">
+            <Input
+              type="text"
+              placeholder="Your name"
+              className="h-12"
+            />
             <Input
               type="email"
-              placeholder="name@email.com"
-              className="flex-1 h-11"
+              placeholder="Your email"
+              className="h-12"
             />
-            <Button className="h-11 px-6 bg-black hover:bg-gray-800 text-white">
-              Subscribe
+            <textarea
+              placeholder="Your message"
+              rows={5}
+              className="w-full px-4 py-3 rounded-md border border-gray-200 focus:border-gray-400 focus:outline-none resize-none"
+            />
+            <Button className="w-full h-12 bg-black hover:bg-gray-800 text-white">
+              Send message
             </Button>
-          </div>
-        </div>
-      </section>
+          </form>
+        </section>
+      </main>
 
-      {/* Category Tabs */}
-      <section className="px-4 sm:px-6 lg:px-8 border-b">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between py-4">
-            <div className="flex items-center space-x-1 overflow-x-auto scrollbar-hide">
-              {categories.map((category, index) => (
-                <button
-                  key={category.id}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-full whitespace-nowrap transition-colors ${
-                    index === 0
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-600 hover:bg-gray-100"
-                  }`}
-                >
-                  {index === 1 && (
-                    <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                  )}
-                  {index === 2 && (
-                    <span className="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
-                  )}
-                  {index >= 3 && index <= 7 && (
-                    <svg
-                      className="w-3.5 h-3.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-                      />
-                    </svg>
-                  )}
-                  {category.label}
-                </button>
-              ))}
-            </div>
-            <button className="text-sm text-gray-600 hover:text-black whitespace-nowrap ml-4">
-              See More
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Product Grid */}
-      <section className="px-4 sm:px-6 lg:px-8 py-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
-              <article
-                key={product.id}
-                className="group cursor-pointer"
-              >
-                <div className="relative aspect-square bg-gray-50 rounded-lg overflow-hidden mb-4">
-                  {product.isStaffPick && (
-                    <Badge className="absolute top-3 left-3 bg-amber-400 text-black hover:bg-amber-400 text-xs font-medium">
-                      Staff Pick
-                    </Badge>
-                  )}
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="space-y-1">
-                  <p className="text-xs text-gray-500">
-                    {product.brand} · {product.category}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-medium text-gray-900 group-hover:text-gray-600 transition-colors">
-                      {product.name}
-                    </h3>
-                    <span className="text-sm text-gray-600">
-                      ${product.price.toLocaleString()}
-                    </span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Show More Button */}
-      <section className="px-4 sm:px-6 lg:px-8 py-8">
-        <div className="max-w-7xl mx-auto flex justify-center">
-          <Button
-            variant="outline"
-            className="rounded-full px-8 h-11 border-gray-300 hover:bg-gray-50"
-          >
-            Show More
-          </Button>
-        </div>
-      </section>
-
-      {/* Footer */}
+      {}
       <footer className="border-t bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
-            {/* Logo and Subscribe */}
+            {}
             <div className="col-span-2 lg:col-span-2">
               <svg
                 width="24"
@@ -229,7 +199,7 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Navigation */}
+            {}
             <div>
               <h4 className="text-xs font-medium text-gray-900 mb-3">
                 Navigation
@@ -248,7 +218,7 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Info */}
+            {}
             <div>
               <h4 className="text-xs font-medium text-gray-900 mb-3">Info</h4>
               <ul className="space-y-2">
@@ -265,7 +235,7 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Contact */}
+            {}
             <div>
               <h4 className="text-xs font-medium text-gray-900 mb-3">
                 Contact
@@ -287,7 +257,7 @@ export default function Home() {
 
           <Separator className="my-8" />
 
-          {/* Bottom Footer */}
+          {}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-gray-500">
               © 2025 Curated Supply. All rights reserved.
