@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Public_Sans } from "next/font/google";
 import { UmamiScript } from "@/components/umami-script";
+import { Agentation } from "agentation";
 import "./globals.css";
 
 const publicSans = Public_Sans({
@@ -27,6 +28,9 @@ export default function RootLayout({
         className={`${publicSans.variable} font-sans antialiased`}
       >
         {children}
+        {process.env.NODE_ENV === "development" && (
+          <Agentation endpoint="http://localhost:4747" />
+        )}
       </body>
     </html>
   );
